@@ -1,18 +1,92 @@
-<!DOCTYPE html><html lang=HI><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/irctcIntroTravalUnion/favicon.png><title>Spice Money</title><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css><link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,800;0,900;1,700&display=swap" rel=stylesheet><script async src="https://www.googletagmanager.com/gtag/js?id=UA-117676079-1"></script><script>window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "UA-117676079-1");</script><script>(function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            "gtm.start": new Date().getTime(),
-            event: "gtm.js"
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+      If you are serving your web app in a path other than the root, change the
+      href value below to reflect the base path you are serving from.
+
+      The path provided below has to start and end with a slash "/" in order for
+      it to work correctly.
+
+      Fore more details:
+      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    -->
+    <base href="/">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta content="Travel Union" name="description">
+
+    <!-- iOS meta tags & icons -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="Travel Union" name="apple-mobile-web-app-title">
+    <link href="icons/ic_launcher.png" rel="apple-touch-icon">
+
+    <!-- Favicon -->
+    <link href="ic_launcher.png" rel="icon" type="image/png"/>
+
+    <title>Travel Union</title>
+    <link href="manifest.json" rel="manifest">
+</head>
+<body>
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('flutter-first-frame', function () {
+            navigator.serviceWorker.register('flutter_service_worker.js?v=3046401468');
         });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, "script", "dataLayer", "GTM-WQTR3H4");</script><link href=/irctcIntroTravalUnion/css/chunk-1868bff0.0e433876.css rel=prefetch><link href=/irctcIntroTravalUnion/js/chunk-1868bff0.e3f9bbbb.js rel=prefetch><link href=/irctcIntroTravalUnion/css/app.215c1a31.css rel=preload as=style><link href=/irctcIntroTravalUnion/css/chunk-vendors.f3ff2d6c.css rel=preload as=style><link href=/irctcIntroTravalUnion/js/app.9b8a2ba6.js rel=preload as=script><link href=/irctcIntroTravalUnion/js/chunk-vendors.4062d4c9.js rel=preload as=script><link href=/irctcIntroTravalUnion/css/chunk-vendors.f3ff2d6c.css rel=stylesheet><link href=/irctcIntroTravalUnion/css/app.215c1a31.css rel=stylesheet></head><body><noscript><strong>We're sorry but DEMO Vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script>var app = app;</script><script src=/irctcIntroTravalUnion/js/chunk-vendors.4062d4c9.js></script><script src=/irctcIntroTravalUnion/js/app.9b8a2ba6.js></script></body></html>
+    }
+ if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+     navigator.serviceWorker.register("/firebase-messaging-sw.js");
+   });
+  }
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-messaging.js"></script>
+
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyCcElK1Js8QQHVBKJUVERrCtXICzTOUR8I",
+    authDomain: "travelunion-firebase.firebaseapp.com",
+    projectId: "travelunion-firebase",
+    storageBucket: "travelunion-firebase.appspot.com",
+    messagingSenderId: "544480601060",
+    appId: "1:544480601060:web:ac3fc7377280f880745df1",
+    measurementId: "G-MNF6525R59"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    const messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler(function (payload) {
+    const promiseChain = clients
+        .matchAll({
+            type: "window",
+            includeUncontrolled: true
+        })
+        .then(windowClients => {
+            for (let i = 0; i < windowClients.length; i++) {
+                const windowClient = windowClients[i];
+                windowClient.postMessage(payload);
+            }
+        })
+        .then(() => {
+            return registration.showNotification("New Message");
+        });
+    return promiseChain;
+});
+self.addEventListener('notificationclick', function (event) {
+    console.log('notification received: ', event)
+});
+
+</script>
+
+<script src="main.dart.js" type="application/javascript"></script>
+</body>
+</html>
