@@ -1,3 +1,0 @@
-function closeSession() {
-    app.closeSession();
-}
