@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <!--
       If you are serving your web app in a path other than the root, change the
       href value below to reflect the base path you are serving from.
@@ -11,34 +11,34 @@
       Fore more details:
       * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
     -->
-    <base href="/qr/" />
-    <!--    for preprod-->
-    <!--    <base href="/tu_web_preprod/">-->
+    <base href="/qr/">
+<!--    for preprod-->
+<!--    <base href="/tu_web_preprod/">-->
 
-    <meta charset="UTF-8" />
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta content="Travel Union" name="description" />
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta content="Travel Union" name="description">
 
     <!-- iOS meta tags & icons -->
-    <meta content="yes" name="apple-mobile-web-app-capable" />
-    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-    <meta content="Travel Union" name="apple-mobile-web-app-title" />
-    <link href="icons/ic_launcher.png" rel="apple-touch-icon" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="Travel Union" name="apple-mobile-web-app-title">
+    <link href="icons/ic_launcher.png" rel="apple-touch-icon">
 
     <!-- Favicon -->
-    <link href="ic_launcher.png" rel="icon" type="image/png" />
+    <link href="ic_launcher.png" rel="icon" type="image/png"/>
 
     <title>Travel Union</title>
-    <link href="manifest.json" rel="manifest" />
-  </head>
-  <body>
-    <!-- This script installs service_worker.js to provide PWA functionality to
+    <link href="manifest.json" rel="manifest">
+</head>
+<body>
+<!-- This script installs service_worker.js to provide PWA functionality to
      application. For more information, see:
      https://developers.google.com/web/fundamentals/primers/service-workers -->
-    <!--<script>
+<!--<script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('flutter-first-frame', function () {
-            navigator.serviceWorker.register('flutter_service_worker.js?v=2622640774');
+            navigator.serviceWorker.register('flutter_service_worker.js?v=1032583730');
         });
     }
  if ('serviceWorker' in navigator) {
@@ -48,51 +48,44 @@
   }
 </script>-->
 
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-messaging.js"></script>
 
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyCcElK1Js8QQHVBKJUVERrCtXICzTOUR8I",
-        authDomain: "travelunion-firebase.firebaseapp.com",
-        projectId: "travelunion-firebase",
-        storageBucket: "travelunion-firebase.appspot.com",
-        messagingSenderId: "544480601060",
-        appId: "1:544480601060:web:ac3fc7377280f880745df1",
-        measurementId: "G-MNF6525R59",
-      };
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyCcElK1Js8QQHVBKJUVERrCtXICzTOUR8I",
+    authDomain: "travelunion-firebase.firebaseapp.com",
+    projectId: "travelunion-firebase",
+    storageBucket: "travelunion-firebase.appspot.com",
+    messagingSenderId: "544480601060",
+    appId: "1:544480601060:web:ac3fc7377280f880745df1",
+    measurementId: "G-MNF6525R59"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
 
-    <script src="//cdnt.netcoresmartech.com/smartechclient.js"></script>
-    <script>
-      smartech(
-        "create",
-        "ADGMOT35CHFLVDHBJNIG50K968874GTPBKMQUU7FH920M29N1D3G",
-        "tin"
-      );
-      smartech("register", "09dc800fe85e27ef94fd5870e3db4ad5");
-      smartech("identify", "");
-      smartech("dispatch", 1, {});
-    </script>
 
-    <!-- Global site tag (gtag.js) - Google Ads: 343096906 -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-343096906"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+</script>
 
-      gtag("config", "AW-343096906");
-    </script>
+<script src='//cdnt.netcoresmartech.com/smartechclient.js'></script>
+<script>smartech('create', 'ADGMOT35CHFLVDHBJNIG50K968874GTPBKMQUU7FH920M29N1D3G' , "tin");
+smartech('register', '09dc800fe85e27ef94fd5870e3db4ad5');
+smartech('identify', '');
+smartech('dispatch',1,{});
+</script>
 
-    <script src="main.dart.js" type="application/javascript"></script>
-  </body>
+
+<!-- Global site tag (gtag.js) - Google Ads: 343096906 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-343096906"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-343096906');
+</script>
+
+<script src="main.dart.js" type="application/javascript"></script>
+</body>
 </html>
